@@ -1,5 +1,12 @@
-Turbolinks Classic is now deprecated
-====================================
+Turbolinks v3.0.0
+=================
+
+This fork is only to use unreleased turbolinks v3.0.0  gem from [RubyGems](https://rubygems.org/gems/doc-turbolinks). In some environments, for example [AWS Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/), usage of rubygems instead of github drastically reduce deployment time.
+
+Usage
+-----
+Add `gem 'doc-turbolinks', require: 'turbolinks'` to your Gemfile
+Everything else as usual.
 
 Turbolinks 5 is a ground-up rewrite with a new flow, new events, but the same core idea. It's available at [turbolinks/turbolinks](https://github.com/turbolinks/turbolinks). This repository remains available for existing applications built on what we now call Turbolinks Classic.
 
@@ -37,21 +44,21 @@ Event                | Argument `originalEvent.data` | Notes
 `page:restore`       |                               | A cached body element has been loaded into the DOM.
 `page:after-remove`  | `affectedNode`                | An element has been removed from the DOM or body evicted from the cache and must be cleaned up. jQuery event listeners are cleaned up automatically.
 
-**Example: load a fresh version of a page from the server** 
+**Example: load a fresh version of a page from the server**
 - `page:before-change` link clicked or `Turbolinks.visit()` called (cancellable)
 - `page:fetch` about to send XHR
 - `page:receive` received response from server
 - `page:before-unload` (`[currentBody]`) page has been parsed and is about to be changed
 - `page:change` (`[newBody]`) new body is in place
-- `page:update` 
+- `page:update`
 - `page:load` (`[newBody]`) page has been loaded (progress bar hidden, scroll position updated)
 - `page:after-remove` (`oldBody`) an old body has been evicted from the cache
 
-**Example: partial replacement with `Turbolinks.replace()`** 
+**Example: partial replacement with `Turbolinks.replace()`**
 - `page:before-unload` (`[currentNodes...]`) nodes are about to be changed
 - `page:after-remove` (`currentNode`) a node has been removed from the DOM and must be cleaned up (fires once per node)
 - `page:change` (`[newNodes...]`) new nodes are in place
-- `page:update` 
+- `page:update`
 - `page:partial-load` (`[newNodes...]`)
 
 **Example lifecycle setup:**
@@ -337,7 +344,7 @@ Partial replacement decisions can also be made server-side by using `redirect_to
 class CommentsController < ActionController::Base
   def index
     @comments = Comment.page(params[:page]).per(25)
-    
+
     # Turbolinks appends the nodes in `comment_list`; useful for infinite scrolling
     render :index, append: ['comment_list']
   end
@@ -440,9 +447,9 @@ Option            | Type                  | Notes
 Function                  | Arguments                  | Notes
 ------------------------- | ----------------           | -----
 `pagesCached()`           | None&nbsp;or&nbsp;`Number` | Get or set the maximum number of pages that should be cached.
-`cacheCurrentPage()`      |                            | 
-`enableTransitionCache()` |                            | 
-`disableRequestCaching()` |                            | 
+`cacheCurrentPage()`      |                            |
+`enableTransitionCache()` |                            |
+`disableRequestCaching()` |                            |
 `allowLinkExtensions()`   | `String`...                | Whitelist additional file extensions to be processed by Turbolinks.
 
 Property    | Notes
@@ -491,7 +498,7 @@ Known issues
 Installation
 ------------
 
-1. Add `gem 'turbolinks'` to your Gemfile.
+1. Add `gem 'doc-turbolinks', require: 'turbolinks'` to your Gemfile.
 2. Run `bundle install`.
 3. Add `//= require turbolinks` to your Javascript manifest file (usually found at `app/assets/javascripts/application.js`). If your manifest requires both turbolinks and jQuery, make sure turbolinks is listed *after* jQuery.
 4. Restart your server and you're now using turbolinks!
