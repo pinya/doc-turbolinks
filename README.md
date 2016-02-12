@@ -1,7 +1,7 @@
 Turbolinks v3.0.0
 =================
 
-This fork is only to use unreleased turbolinks v3.0.0  gem from [RubyGems](https://rubygems.org/gems/doc-turbolinks). In some environments, for example [AWS Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/), usage of rubygems instead of github drastically reduce deployment time.
+This fork is only to use unreleased (turbolinks v3.0.0)[https://github.com/turbolinks/turbolinks-classic]  gem from [RubyGems](https://rubygems.org/gems/doc-turbolinks). In some environments, for example [AWS Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/), usage of rubygems instead of github drastically reduce deployment time.
 
 Usage
 -----
