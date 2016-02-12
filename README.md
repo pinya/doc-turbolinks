@@ -5,10 +5,11 @@ This fork is only to use unreleased (turbolinks v3.0.0)[https://github.com/turbo
 
 Usage
 -----
-Add `gem 'doc-turbolinks', require: 'turbolinks'` to your Gemfile
-Everything else as usual.
+Add `gem 'doc-turbolinks', '~> 3.0.1',  require: 'turbolinks'` to your Gemfile
 
-Turbolinks 5 is a ground-up rewrite with a new flow, new events, but the same core idea. It's available at [turbolinks/turbolinks](https://github.com/turbolinks/turbolinks). This repository remains available for existing applications built on what we now call Turbolinks Classic.
+Another moment, that `jquery.turbolinks` gem include original `turbolinks` gem as dependency. To resolve this issue `jquery.turbolinks.coffee` placed in this gem. So, please remove, `gem 'jquery-turbolinks'` from your `Gemfile`
+
+
 
 Turbolinks
 ----------
